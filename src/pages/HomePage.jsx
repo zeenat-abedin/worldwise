@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./HomePage.module.css";
 
 export default function HomePage() {
@@ -13,6 +14,9 @@ export default function HomePage() {
           have wandered the world
         </h2>
       </section>
+      <Link to="/app" className="cta">
+        Start tracking now
+      </Link>
     </main>
   );
 }
