@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./HomePage.module.css";
+import PageNav from "../components/PageNav";
 
 export default function HomePage() {
   return (
     <main className={styles.homepage}>
+      <PageNav />
       <section>
         <h1>
           You travel the world <br /> Worldwise keeps track of your adventures
