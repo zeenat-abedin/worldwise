@@ -5,7 +5,7 @@ import Pricing from "./pages/Pricing";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
-import City from "./components/City";
+// import City from "./components/City";
 
 export default function App() {
   return (
@@ -16,7 +16,8 @@ export default function App() {
         <Route path="pricing" element={<Pricing />} />
         <Route path="/login" element={<Login />} />
         <Route path="app" element={<AppLayout />}>
-          <Route path="cities" element={<City />} />
+          <Route index element={<p>LIST</p>} />
+          <Route path="cities" element={<p>List of Cities</p>} />
           <Route path="countries" element={<p>List of Countries</p>} />
           <Route path="form" element={<p>Form</p>} />
         </Route>
