@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Product from "./pages/Product";
@@ -6,9 +7,29 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 import CityList from "./components/CityList";
-// import City from "./components/City";
+
+const BASE_URL = "http://localhost:9000/";
 
 export default function App() {
+  const [cities, setCities] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    async function fetchCities() {
+      try {
+        const res = await fetch(`${BASE_URL}/cities`);
+        const data = await res.json();
+        console.log(data);
+        setCities(data);
+      } catch (error) {
+        alert("There was an error loading the data...");
+      } finally {
+        setLoading(true);
+      }
+    }
+    fetchCities();
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
