@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import CityItem from "./CityItem";
 import Spinner from "./Spinner";
 
@@ -14,3 +16,8 @@ export default function CityList({ cities, loading }) {
     </ul>
   );
 }
+
+CityList.propTypes = {
+  cities: PropTypes.array,
+  loading: PropTypes.bool,
+};
