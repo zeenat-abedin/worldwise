@@ -24,7 +24,7 @@ export default function App() {
       } catch (error) {
         alert("There was an error loading the data...");
       } finally {
-        setLoading(true);
+        setLoading(false);
       }
     }
     fetchCities();
