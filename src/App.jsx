@@ -17,6 +17,7 @@ export default function App() {
   useEffect(() => {
     async function fetchCities() {
       try {
+        setLoading(true);
         const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
         console.log(data);
