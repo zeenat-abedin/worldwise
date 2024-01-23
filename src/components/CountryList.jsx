@@ -3,17 +3,17 @@ import PropTypes from "prop-types";
 import CityItem from "./CityItem";
 import Spinner from "./Spinner";
 
-import styles from "./CityList.module.css";
+import styles from "./CountryList.module.css";
 import Message from "./Message";
 
-export default function CityList({ cities, loading }) {
+export default function CountryList({ cities, loading }) {
   if (loading) return <Spinner />;
   if (!cities.length) {
-    return <Message message="Add your first city by clicking on the map" />;
+    return <Message message="Add your first country by clicking on the map" />;
   }
 
   return (
-    <ul className={styles.cityList}>
+    <ul className={styles.countryList}>
       {cities.map((city) => (
         <CityItem city={city} key={city.id} />
       ))}
@@ -21,7 +21,7 @@ export default function CityList({ cities, loading }) {
   );
 }
 
-CityList.propTypes = {
+CountryList.propTypes = {
   cities: PropTypes.array,
   loading: PropTypes.bool,
 };
