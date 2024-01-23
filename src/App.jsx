@@ -8,10 +8,10 @@ import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 import CityList from "./components/CityList";
 
-const BASE_URL = "http://localhost:9000/";
+const BASE_URL = "http://localhost:9000";
 
 export default function App() {
-  const [cities, setCities] = useState({});
+  const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -34,13 +34,19 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route index element={<HomePage />} />
         <Route path="product" element={<Product />} />
         <Route path="pricing" element={<Pricing />} />
         <Route path="/login" element={<Login />} />
         <Route path="app" element={<AppLayout />}>
-          <Route index element={<p>LIST</p>} />
-          <Route path="cities" element={<CityList />} />
+          <Route
+            index
+            element={<CityList cities={cities} loading={loading} />}
+          />
+          <Route
+            path="cities"
+            element={<CityList cities={cities} loading={loading} />}
+          />
           <Route path="countries" element={<p>List of Countries</p>} />
           <Route path="form" element={<p>Form</p>} />
         </Route>
