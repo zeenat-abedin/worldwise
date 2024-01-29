@@ -5,8 +5,11 @@ import Spinner from "./Spinner";
 
 import styles from "./CountryList.module.css";
 import Message from "./Message";
+import { useCities } from "../contexts/CitiesContext";
 
-export default function CountryList({ cities, loading }) {
+export default function CountryList() {
+  const { cities, loading } = useCities();
+
   if (loading) return <Spinner />;
   if (!cities.length) {
     return <Message message="Add your first country by clicking on the map" />;
