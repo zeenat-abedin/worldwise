@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+import PropTypes from "prop-types";
+
 const BASE_URL = "http://localhost:9000";
 
 const CitiesContext = createContext();
@@ -40,3 +42,7 @@ function useCities() {
 }
 
 export { CitiesProvider, useCities };
+
+CitiesProvider.propTypes = {
+  children: PropTypes.string,
+};
