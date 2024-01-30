@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import CityItem from "./CityItem";
 import Spinner from "./Spinner";
 
-import styles from "./CityList.module.css";
-import Message from "./Message";
 import { useCities } from "../contexts/CitiesContext";
+import Message from "./Message";
+import styles from "./CityList.module.css";
 
 export default function CityList() {
   const { cities, loading } = useCities();

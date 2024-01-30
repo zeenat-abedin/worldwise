@@ -1,6 +1,7 @@
-import PropTypes from "prop-types";
-import styles from "./CityItem.module.css";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import styles from "./CityItem.module.css";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
