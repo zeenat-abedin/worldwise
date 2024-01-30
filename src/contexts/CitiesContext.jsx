@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-
 const BASE_URL = "http://localhost:9000";
 
 const CitiesContext = createContext();
@@ -32,7 +31,6 @@ function CitiesProvider({ children }) {
       setLoading(true);
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = await res.json();
-      console.log(data);
       setCurrentCity(data);
     } catch (error) {
       alert("There was an error loading the data...");
@@ -58,5 +56,5 @@ function useCities() {
 export { CitiesProvider, useCities };
 
 CitiesProvider.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.node,
 };

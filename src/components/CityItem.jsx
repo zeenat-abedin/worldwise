@@ -33,5 +33,5 @@ export default function CityItem({ city }) {
 }
 
 CityItem.propTypes = {
-  city: PropTypes.string,
+  city: PropTypes.object,
 };
