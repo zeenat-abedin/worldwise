@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import PropTypes from "prop-types";
+
 import {
   MapContainer,
   Marker,
@@ -58,13 +60,18 @@ export default function Map() {
 function ChangeCenter({ position }) {
   const map = useMap();
   map.setView(position);
+  return null;
 }
 
 function DetectClick() {
   const navigate = useNavigate();
   useMapEvents({
-    click: () => {
-      navigate(`form`);
+    click: (e) => {
+      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
     },
   });
 }
+
+ChangeCenter.propTypes = {
+  position: PropTypes.arr,
+};
