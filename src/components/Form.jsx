@@ -6,6 +6,7 @@ import { useUrlPosition } from "../hooks/useUrlPosition";
 import Button from "./Button";
 import BackButton from "./BackButton";
 import Message from "./Message";
+import Spinner from "./Spinner";
 import styles from "./Form.module.css";
 
 const BASE_URL =
@@ -40,13 +41,13 @@ function Form() {
 
         setCityName(data.city || data.locality || "");
         setCountry(data.countryName || data.countryCode || "");
-        setEmoji(convertToEmoji(data.countryCode));
 
         if (!data.countryCode) {
           throw new Error(
             "That doesn't seem to be a city. CLick somewhere else"
           );
         }
+        setEmoji(convertToEmoji(data.countryCode));
       } catch (error) {
         setGeoCodingError(error.message);
       } finally {
@@ -56,6 +57,7 @@ function Form() {
     fetchCities();
   }, [lat, lng]);
 
+  if (isLoadingGeocoding) return <Spinner />;
   if (geoCodingError) return <Message message={geoCodingError} />;
 
   return (
