@@ -12,7 +12,6 @@ const formatDate = (date) =>
     weekday: "long",
   }).format(new Date(date));
 export default function CityItem({ city }) {
-  console.log(city);
   const { currentCity } = useCities();
   const { cityName, date, emoji, id, position } = city;
   return (

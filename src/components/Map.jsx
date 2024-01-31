@@ -90,6 +90,6 @@ function DetectClick() {
   });
 }
 
-ChangeCenter.propTypes = {
-  position: PropTypes.arr,
-};
+// ChangeCenter.propTypes = {
+//   position: PropTypes.object,
+// };
