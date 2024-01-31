@@ -20,6 +20,8 @@ export function convertToEmoji(countryCode) {
 
 function Form() {
   const [cityName, setCityName] = useState("");
+  const [country, setCountry] = useState("");
+  const [emoji, setEmoji] = useState(false);
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
@@ -32,6 +34,9 @@ function Form() {
         const res = await fetch(`${BASE_URL}/latitude=${lat}&longitude=${lng}`);
         const data = await res.json();
         console.log(data);
+        setCityName(data.city || data.locality || "");
+        setCountry(data.countryName || data.countryCode || "");
+        setEmoji(convertToEmoji(data.countryCode));
       } catch (error) {
         alert("There was an error loading the data...");
       } finally {
@@ -50,7 +55,7 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        {/* <span className={styles.flag}>{emoji}</span> */}
+        <span className={styles.flag}>{emoji}</span>
       </div>
 
       <div className={styles.row}>
