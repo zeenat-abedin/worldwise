@@ -91,5 +91,5 @@ function DetectClick() {
 }
 
 ChangeCenter.propTypes = {
-  position: PropTypes.array,
+  position: PropTypes.object,
 };
