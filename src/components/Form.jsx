@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Button from "./Button";
 import BackButton from "./BackButton";
+import Message from "./Message";
 import styles from "./Form.module.css";
 
 const BASE_URL =
@@ -21,8 +22,9 @@ export function convertToEmoji(countryCode) {
 function Form() {
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
-  const [emoji, setEmoji] = useState(false);
+  const [emoji, setEmoji] = useState("");
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
+  const [geoCodingError, setGeoCodingError] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
   const { lat, lng } = useUrlPosition();
@@ -31,20 +33,30 @@ function Form() {
     async function fetchCities() {
       try {
         setIsLoadingGeocoding(true);
+        setGeoCodingError("");
+
         const res = await fetch(`${BASE_URL}/latitude=${lat}&longitude=${lng}`);
         const data = await res.json();
-        console.log(data);
+
         setCityName(data.city || data.locality || "");
         setCountry(data.countryName || data.countryCode || "");
         setEmoji(convertToEmoji(data.countryCode));
+
+        if (!data.countryCode) {
+          throw new Error(
+            "That doesn't seem to be a city. CLick somewhere else"
+          );
+        }
       } catch (error) {
-        alert("There was an error loading the data...");
+        setGeoCodingError(error.message);
       } finally {
         setIsLoadingGeocoding(false);
       }
     }
     fetchCities();
   }, [lat, lng]);
+
+  if (geoCodingError) return <Message message={geoCodingError} />;
 
   return (
     <form className={styles.form}>
