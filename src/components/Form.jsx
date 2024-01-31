@@ -31,6 +31,8 @@ function Form() {
   const { lat, lng } = useUrlPosition();
 
   useEffect(() => {
+    if (!lat || !lng) return;
+
     async function fetchCities() {
       try {
         setIsLoadingGeocoding(true);
