@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🏴",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": "73930385"
-    },
-    {
       "cityName": "Madrid",
       "country": "Spain",
       "emoji": "🏳️",
@@ -49,79 +37,7 @@
       "id": "98443198"
     },
     {
-      "id": "2968",
-      "date": "2024-01-31T18:46:57.137Z",
-      "cityName": "Kolkatap",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "notes": "hhuittjj",
-      "position": {
-        "lat": "40.894108584427364",
-        "lng": "-1.738715802030944"
-      }
-    },
-    {
-      "id": "c6f3",
-      "date": "2024-01-31T18:46:57.137Z",
-      "cityName": "Kolkatap",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "notes": "hhuittjj",
-      "position": {
-        "lat": "40.894108584427364",
-        "lng": "-1.738715802030944"
-      }
-    },
-    {
-      "id": "a9aa",
-      "date": "2024-01-31T18:46:57.137Z",
-      "cityName": "Kolkatap",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "notes": "hhuittjj",
-      "position": {
-        "lat": "40.894108584427364",
-        "lng": "-1.738715802030944"
-      }
-    },
-    {
-      "id": "96f1",
-      "date": "2024-01-31T18:46:57.137Z",
-      "cityName": "Kolkatap",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "notes": "hhuittjj",
-      "position": {
-        "lat": "40.894108584427364",
-        "lng": "-1.738715802030944"
-      }
-    },
-    {
       "id": "c334",
-      "date": "2024-01-31T18:46:57.137Z",
-      "cityName": "Kolkatap",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "notes": "hhuittjj",
-      "position": {
-        "lat": "40.894108584427364",
-        "lng": "-1.738715802030944"
-      }
-    },
-    {
-      "id": "73a2",
-      "date": "2024-01-31T18:46:57.137Z",
-      "cityName": "Kolkatap",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "notes": "hhuittjj",
-      "position": {
-        "lat": "40.894108584427364",
-        "lng": "-1.738715802030944"
-      }
-    },
-    {
-      "id": "0869",
       "date": "2024-01-31T18:46:57.137Z",
       "cityName": "Kolkatap",
       "country": "India",
@@ -142,18 +58,6 @@
       "position": {
         "lat": "40.894108584427364",
         "lng": "-1.738715802030944"
-      }
-    },
-    {
-      "id": "5f73",
-      "date": "2024-02-01T14:18:41.817Z",
-      "cityName": "Delhi",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "notes": "yyr7r8",
-      "position": {
-        "lat": "49.02914419024857",
-        "lng": "-9.755859375000002"
       }
     }
   ]
