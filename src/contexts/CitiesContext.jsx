@@ -102,7 +102,7 @@ function CitiesProvider({ children }) {
       await fetch(`${BASE_URL}/cities/${id}`, {
         method: "DELETE",
       });
-      dispatch({ type: "city/deleted" });
+      dispatch({ type: "city/deleted", payload: id });
     } catch (error) {
       dispatch({
         type: "rejected",
