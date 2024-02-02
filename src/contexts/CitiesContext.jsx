@@ -20,13 +20,13 @@ function reducer(state, action) {
       return { ...state, cities: action.payload, loading: false };
     case "city/loaded":
       return { ...state, currentCity: action.payload, loading: false };
-    case "cities/created":
+    case "city/created":
       return {
         ...state,
         cities: [...state.cities, action.payload],
         loading: false,
       };
-    case "cities/deleted":
+    case "city/deleted":
       return { ...state, cities: action.payload, loading: false };
     case "rejected":
       return {
@@ -54,7 +54,7 @@ function CitiesProvider({ children }) {
       } catch (error) {
         dispatch({
           type: "rejected",
-          payload: "Could not load cities at this time.",
+          payload: "There was an error loading the cities.",
         });
       }
     }
@@ -68,7 +68,10 @@ function CitiesProvider({ children }) {
       const data = await res.json();
       dispatch({ type: "city/loaded", payload: data });
     } catch (error) {
-      alert("There was an error loading the data...");
+      dispatch({
+        type: "rejected",
+        payload: "There was an error loading the city.",
+      });
     }
   }
 
@@ -82,9 +85,12 @@ function CitiesProvider({ children }) {
         body: JSON.stringify(newCity),
       });
       const data = await res.json();
-      dispatch({ type: "cities/created", payload: data });
+      dispatch({ type: "city/created", payload: data });
     } catch (error) {
-      alert("There was an error creating the city...");
+      dispatch({
+        type: "rejected",
+        payload: "There was an error creating the city.",
+      });
     }
   }
   async function deleteCity(id) {
@@ -92,9 +98,12 @@ function CitiesProvider({ children }) {
       await fetch(`${BASE_URL}/cities/${id}`, {
         method: "DELETE",
       });
-      dispatch({ type: "cities/deleted" });
+      dispatch({ type: "city/deleted" });
     } catch (error) {
-      alert("There was an error deleting the city.");
+      dispatch({
+        type: "rejected",
+        payload: "There was an error deleting the city.",
+      });
     }
   }
   return (
