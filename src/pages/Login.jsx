@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/FakeAuthContext";
 import PageNav from "../components/PageNav";
 import styles from "./Login.module.css";
+import Button from "../components/Button";
 
 export default function Login() {
   const { login, isAuthenticated } = useAuth();
@@ -43,7 +44,9 @@ export default function Login() {
         </div>
 
         <div>
-          <button>Login</button>
+          <Button type="primary" onClick={() => login({ email, password })}>
+            Login
+          </Button>
         </div>
       </form>
     </main>
