@@ -19,7 +19,7 @@ function reducer(state, action) {
     case "cities/loaded":
       return { ...state, cities: action.payload, loading: false };
     case "city/loaded":
-      return { ...state, currentCity: action.payload, loading: false };
+      return { ...state, loading: false, currentCity: action.payload };
     case "city/created":
       return {
         ...state,
