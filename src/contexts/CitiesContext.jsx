@@ -27,7 +27,11 @@ function reducer(state, action) {
         loading: false,
       };
     case "city/deleted":
-      return { ...state, cities: action.payload, loading: false };
+      return {
+        ...state,
+        cities: state.cities.filter((city) => city.id !== action.payload),
+        loading: false,
+      };
     case "rejected":
       return {
         ...state,
