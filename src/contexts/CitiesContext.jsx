@@ -68,6 +68,8 @@ function CitiesProvider({ children }) {
   }, []);
 
   async function getCity(id) {
+    if (Number(id) === currentCity.id) return; //Please note the id is coming from URL and anything that comes from URL will be a string. So it is important to wrap it with Number.
+
     dispatch({ type: "loading" });
     try {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
