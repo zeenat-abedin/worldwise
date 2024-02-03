@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 import { useAuth } from "../contexts/FakeAuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +11,11 @@ function ProtectedRoutes({ children }) {
     if (!isAuthenticated) navigate("/");
   }, [isAuthenticated, navigate]);
 
-  return children;
+  return isAuthenticated ? children : null;
 }
 
 export default ProtectedRoutes;
+
+ProtectedRoutes.propTypes = {
+  children: PropTypes.node,
+};
