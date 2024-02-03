@@ -32,11 +32,19 @@ function reducer(state, action) {
 }
 
 function AuthProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  function login(email, password) {}
+  const [{ user, isAuthenticated }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
+
+  function login(email, password) {
+    if (FAKE_USER.email === email && FAKE_USER.password === password) {
+      dispatch({ type: "login", payload: FAKE_USER });
+    }
+  }
+
   function logout() {}
-  function user() {}
-  function isAuthenticated() {}
+
   return (
     <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
       {children}
