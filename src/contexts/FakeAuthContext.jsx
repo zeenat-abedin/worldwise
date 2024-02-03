@@ -1,4 +1,5 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useReducer } from "react";
+import PropTypes from "prop-types";
 
 const AuthContext = createContext();
 
@@ -31,11 +32,7 @@ function reducer(state, action) {
 }
 
 function AuthProvider({ children }) {
-  const [state, dispatch] = useLocalStorageReducer(
-    reducer,
-    "auth",
-    initialState
-  );
+  const [state, dispatch] = useReducer(reducer, initialState);
   function login(email, password) {}
   function logout() {}
   return (
@@ -53,12 +50,7 @@ function useAuth() {
 }
 
 export { AuthProvider, useAuth };
-/*
-CHALLENGE
 
-1) Add `AuthProvider` to `App.jsx`
-2) In the `Login.jsx` page, call `login()` from context
-3) Inside an effect, check whether `isAuthenticated === true`. If so, programatically navigate to `/app`
-4) In `User.js`, read and display logged in user from context (`user` object). Then include this component in `AppLayout.js`
-5) Handle logout button by calling `logout()` and navigating back to `/`
-*/
+AuthProvider.propTypes = {
+  children: PropTypes.node,
+};

@@ -15,9 +15,14 @@ export default function Login() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/app", { replace: true });
+      navigate("/app");
     }
   }, [isAuthenticated, navigate]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (email && password) login(email, password);
+  }
 
   return (
     <main className={styles.login}>
