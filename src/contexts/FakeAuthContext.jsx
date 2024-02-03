@@ -35,6 +35,8 @@ function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   function login(email, password) {}
   function logout() {}
+  function user() {}
+  function isAuthenticated() {}
   return (
     <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
       {children}
