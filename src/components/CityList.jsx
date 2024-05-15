@@ -1,19 +1,18 @@
-import PropTypes from "prop-types";
-
-import CityItem from "./CityItem";
 import Spinner from "./Spinner";
-
-import { useCities } from "../contexts/CitiesContext";
-import Message from "./Message";
 import styles from "./CityList.module.css";
+import CityItem from "./CityItem";
+import Message from "./Message";
+import { useCities } from "../contexts/CitiesContext";
 
-export default function CityList() {
-  const { cities, loading } = useCities();
+function CityList() {
+  const { cities, isLoading } = useCities();
 
-  if (loading) return <Spinner />;
-  if (!cities.length) {
-    return <Message message="Add your first city by clicking on the map" />;
-  }
+  if (isLoading) return <Spinner />;
+
+  if (!cities.length)
+    return (
+      <Message message="Add your first city by clicking on a city on the map" />
+    );
 
   return (
     <ul className={styles.cityList}>
@@ -24,7 +23,4 @@ export default function CityList() {
   );
 }
 
-CityList.propTypes = {
-  cities: PropTypes.array,
-  loading: PropTypes.bool,
-};
+export default CityList;
