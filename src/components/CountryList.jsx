@@ -1,26 +1,23 @@
-import PropTypes from "prop-types";
-
-import CountryItem from "./CountryItem";
 import Spinner from "./Spinner";
-
 import styles from "./CountryList.module.css";
+import CountryItem from "./CountryItem";
 import Message from "./Message";
 import { useCities } from "../contexts/CitiesContext";
 
-export default function CountryList() {
-  const { cities, loading } = useCities();
+function CountryList() {
+  const { cities, isLoading } = useCities();
 
-  if (loading) return <Spinner />;
-  if (!cities.length) {
-    return <Message message="Add your first country by clicking on the map" />;
-  }
+  if (isLoading) return <Spinner />;
 
-  //checking if the array already contains the current city. So we can say the array, then we map over it, and then el.city, which will basically create an array of all the cities that are already in the countries array. And then we ask if this includes the current city. Or actually the country in the current city. Okay, so if that is not the case, so if the current country is not yet in this array that we are creating here, well, then let's return a new array which will contain all the current elements plus a new one.
+  if (!cities.length)
+    return (
+      <Message message="Add your first city by clicking on a city on the map" />
+    );
 
   const countries = cities.reduce((arr, city) => {
-    if (!arr.map((el) => el.country).includes(city.country)) {
+    if (!arr.map((el) => el.country).includes(city.country))
       return [...arr, { country: city.country, emoji: city.emoji }];
-    } else return arr;
+    else return arr;
   }, []);
 
   return (
@@ -32,7 +29,4 @@ export default function CountryList() {
   );
 }
 
-CountryList.propTypes = {
-  cities: PropTypes.array,
-  loading: PropTypes.bool,
-};
+export default CountryList;
