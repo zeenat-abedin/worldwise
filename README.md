@@ -1,8 +1,17 @@
-# React + Vite
+# Worldwise (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To run the frontend, use the following command:
 
-Currently, two official plugins are available:
+### npm run dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This will start the development server and you can access the project in your web browser at http://localhost:5173/.
+
+Then, you need to install JSON server globally on your system using the following command:
+
+### npm install -g json-server
+
+Start the JSON server by running the following command:
+
+### json-server --watch data/cities.json --port 9000
+
+Please note that json server needs to be run in Git Bash and not on powershell. Otherwise it will throw error.
