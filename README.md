@@ -1,4 +1,4 @@
-# Worldwise (React + Vite)
+# Worldwise (React + Vite) https://worldwise-6ax1.vercel.app/
 
 To run the frontend, use the following command:
 
